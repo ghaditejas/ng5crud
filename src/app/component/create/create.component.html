@@ -1,0 +1,30 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      {{ title }}
+    </div>
+    <div class="panel-body">
+      <form [formGroup]="tourForm" novalidate>
+        <div class="form-group">
+          <label class="col-md-4">Location Name</label>
+          <input type="text" class="form-control" formControlName="location"/>
+          <div *ngIf="tourForm.controls['location'].invalid && (tourForm.controls['location'].dirty || tourForm.controls['location'].touched)" class="alert alert-danger">
+              <div *ngIf="tourForm.controls['location'].errors.required">
+                Invalid Location.
+              </div>
+            </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">Tour Cost</label>
+          <input type="text" class="form-control" formControlName="cost"/>
+          <div *ngIf="tourForm.controls['cost'].invalid && (tourForm.controls['cost'].dirty || tourForm.controls['cost'].touched)" class="alert alert-danger">
+              <div *ngIf="tourForm.controls['cost'].errors.required">
+                Invalid Cost.
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+              <button (click)="addTour()" [disabled]="tourForm.pristine || tourForm.invalid" class="btn btn-primary">Add</button>
+          </div>
+      </form>
+    </div>
+  </div>
