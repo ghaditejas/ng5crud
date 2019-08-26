@@ -24,6 +24,7 @@
           </div>
           <div class="form-group">
               <button (click)="addTour()" [disabled]="tourForm.pristine || tourForm.invalid" class="btn btn-primary">Add</button>
+              <button [routerLink]="['/index']"  class="btn btn-danger">Cancel</button>
           </div>
       </form>
     </div>
